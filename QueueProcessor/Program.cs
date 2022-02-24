@@ -10,12 +10,12 @@ namespace QueueProcessor
         static async Task Main(string[] args)
         {
             var builder = new HostBuilder();
-            //builder.UseEnvironment(EnvironmentName.Development);
 
             builder.ConfigureWebJobs(b =>
             {
                 b.AddAzureStorageCoreServices();
                 b.AddAzureStorage();
+                b.AddTimers();
             });
             builder.ConfigureLogging((context, b) =>
             {
